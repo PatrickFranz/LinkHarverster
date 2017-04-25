@@ -1,0 +1,115 @@
+@import '_reset.scss';
+:root{
+  --tab-background: #bebebe;
+  --btn-background: #9c27b0;
+  --btn-background-light: #d05ce3;
+  --btn-background-dark: #6a0080;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn{
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  background: var(--btn-background);
+
+  &:hover{
+    background: var(--btn-background-light);
+  }
+
+
+}
+
+header{
+  display: flex;
+  justify-content: center;
+
+  .title-heading{
+    font-size: 5vmax;
+    font-weight: 300;
+    margin: 20px auto;
+  }
+}
+
+main{
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+
+  .app-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 80vh;
+    border: 1px solid gray;
+
+    input[type='radio']{
+      display: none;
+    }
+
+    .tab{
+      display: none;
+    }
+
+    input:checked{
+      & + .tab{
+        display: flex;
+      }
+    }
+
+    .inputsContainer{
+      position: relative;
+      width: 50%;
+
+      .tabs{
+        display: flex;
+        flex-direction: row;
+      }
+
+      .tab{
+        padding: 10px;
+        flex-direction: column;
+        margin: 0 auto;
+
+        input{
+          margin: 0 auto;
+        }
+
+        p{
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .resultsContainer{
+      border-left: 1px solid gray;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+
+      #result-box{
+        background: var(--tab-background);
+        width: 100%;
+        height: 100%;
+        align-self: center;
+      }
+    }
+
+    & label{
+        padding: 5px 10px;
+      }
+  }
+}
+
+
+
+
+
+footer{
+
+}
+

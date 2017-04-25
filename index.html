@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800" rel="stylesheet">
+  <link rel="stylesheet" href="css/link.css">
+  <title>Link Harverster</title>
+</head>
+<body>
+  <header>
+    <span class='title-heading'>Link Harvester</span>
+  </header>
+
+  <main>
+    <section class='app-container'>
+      <div class='inputsContainer'>
+        <div class='tabs'>
+          <label for="fileTabRadio">File Upload</label>
+          <label for="taTabRadio">Text Input</label>
+        </div>
+        <input type="radio" name='inputTab' id='fileTabRadio' checked>
+        <div class="tab" id="fileTab">
+          <p>Select an HTML file from your computer.</p>
+          <input type="file" name="fileupload" value="fileupload" id="fileupload">
+
+          <div class="btn">Harvest</div>
+          
+        </div>
+        <input type='radio' name='inputTab' id='taTabRadio'>
+        <div class="tab" id="textInputTab">
+          <textarea name="textInput" id="taInput"></textarea>
+        </div>
+    </div>
+    <div class="resultsContainer">
+      <div>
+        <label>Result</label>
+      </div>
+      <div id='result-box'>
+
+      </div>
+    </div>
+    
+    </section>
+  </main>
+
+  <footer>
+    &copy;Patrick Franz -- 2017
+  </footer>
+  
+</body>
+</html>
