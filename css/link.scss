@@ -1,34 +1,52 @@
 @import '_reset.scss';
 :root{
   --tab-background: #bebebe;
-  --btn-background: #9c27b0;
-  --btn-background-light: #d05ce3;
-  --btn-background-dark: #6a0080;
+
+  --btn-background: #75DDDD;
+  --btn-background-light: #8EE3E3;
+  --btn-background-dark: #60B5B5;
+
+  --title-background: #004346;
+  --title-text:  #09BC8A;
+}
+
+*{
+  box-sizing: border-box;
 }
 body{
   font-family: 'Open Sans', sans-serif;
+
+  h3{
+    font-weight: 400;
+  }
 }
 
 .btn{
-  width: 50%;
   margin: 0 auto;
   text-align: center;
   font-size: 2rem;
   padding: 2rem 3rem;
+  cursor: pointer;
+  user-select: none;
   background: var(--btn-background);
+  border-radius: 5px;
 
   &:hover{
     background: var(--btn-background-light);
   }
-
-
+  
+  &:active{
+    background: var(--btn-background-dark);
+  }
 }
 
 header{
   display: flex;
   justify-content: center;
+  background: var(--title-background);
 
   .title-heading{
+    color:var(--title-text);
     font-size: 5vmax;
     font-weight: 300;
     margin: 20px auto;
@@ -47,42 +65,74 @@ main{
     height: 80vh;
     border: 1px solid gray;
 
-    input[type='radio']{
-      display: none;
-    }
-
-    .tab{
-      display: none;
-    }
-
-    input:checked{
-      & + .tab{
-        display: flex;
-      }
-    }
+    
 
     .inputsContainer{
-      position: relative;
       width: 50%;
+      position: relative;
 
       .tabs{
         display: flex;
         flex-direction: row;
-      }
+        background-color: var(--btn-background);
 
-      .tab{
-        padding: 10px;
-        flex-direction: column;
-        margin: 0 auto;
+        & label{
+          padding: 20px 30px;
+          font-size: 1.25rem;
+          border-right: 1px solid var(--btn-background-dark);
+          
+          &:hover{
+            background: var(--btn-background-light);
+          }
+        }
 
-        input{
+        input[type='radio']{
+          display: none;
+
+          &:checked{
+            &+label{
+              background: var(--btn-background-light);
+            }
+            &+label+.tab{
+               display: flex;
+            }
+          }
+        }
+
+        .tab{
+          position: absolute;
+          padding: 20px 10px;
+          flex-direction: column;
+          height: 65%;
           margin: 0 auto;
-        }
+          display: none;
+          top: 4rem;
+          width: 100%;
 
-        p{
-          margin-bottom: 10px;
+          textarea{
+            resize: none;
+            height: 100%;
+          }
+
+          input[type='file']{
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 40px auto;
+          }
+
+          p{
+            margin-bottom: 10px;
+          }
+
+          .submit{
+            position: absolute;
+            top: 100%;
+            left: 30%;
+          }
         }
       }
+
+      
     }
 
     .resultsContainer{
@@ -91,17 +141,28 @@ main{
       display: flex;
       flex-direction: column;
 
+      .heading-box{
+        background-color: var(--btn-background);
+      }
+
       #result-box{
-        background: var(--tab-background);
+        padding: 10px;
         width: 100%;
         height: 100%;
+        font-size: 1.2rem;
         align-self: center;
+        overflow-y: scroll;
+        .property{
+          color: var(--title-background);
+        }
       }
     }
 
-    & label{
-        padding: 5px 10px;
-      }
+    
+    .s-heading{
+      font-size: 1.2rem;
+      padding: 20px 30px;
+    }
   }
 }
 

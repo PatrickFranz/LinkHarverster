@@ -5,8 +5,7 @@
 html, body, div, span, applet, object, iframe, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+small, strike, strong, sub, sup, tt, var, center, h1, h2, h3,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -46,27 +45,40 @@ table {
 
 :root {
   --tab-background: #bebebe;
-  --btn-background: #9c27b0;
-  --btn-background-light: #d05ce3;
-  --btn-background-dark: #6a0080; }
+  --btn-background: #75DDDD;
+  --btn-background-light: #8EE3E3;
+  --btn-background-dark: #60B5B5;
+  --title-background: #004346;
+  --title-text: #09BC8A; }
+
+* {
+  box-sizing: border-box; }
 
 body {
   font-family: 'Open Sans', sans-serif; }
+  body h3 {
+    font-weight: 400; }
 
 .btn {
-  width: 50%;
   margin: 0 auto;
   text-align: center;
   font-size: 2rem;
   padding: 2rem 3rem;
-  background: var(--btn-background); }
+  cursor: pointer;
+  user-select: none;
+  background: var(--btn-background);
+  border-radius: 5px; }
   .btn:hover {
     background: var(--btn-background-light); }
+  .btn:active {
+    background: var(--btn-background-dark); }
 
 header {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  background: var(--title-background); }
   header .title-heading {
+    color: var(--title-text);
     font-size: 5vmax;
     font-weight: 300;
     margin: 20px auto; }
@@ -81,35 +93,63 @@ main {
     width: 100%;
     height: 80vh;
     border: 1px solid gray; }
-    main .app-container input[type='radio'] {
-      display: none; }
-    main .app-container .tab {
-      display: none; }
-    main .app-container input:checked + .tab {
-      display: flex; }
     main .app-container .inputsContainer {
-      position: relative;
-      width: 50%; }
+      width: 50%;
+      position: relative; }
       main .app-container .inputsContainer .tabs {
         display: flex;
-        flex-direction: row; }
-      main .app-container .inputsContainer .tab {
-        padding: 10px;
-        flex-direction: column;
-        margin: 0 auto; }
-        main .app-container .inputsContainer .tab input {
-          margin: 0 auto; }
-        main .app-container .inputsContainer .tab p {
-          margin-bottom: 10px; }
+        flex-direction: row;
+        background-color: var(--btn-background); }
+        main .app-container .inputsContainer .tabs label {
+          padding: 20px 30px;
+          font-size: 1.25rem;
+          border-right: 1px solid var(--btn-background-dark); }
+          main .app-container .inputsContainer .tabs label:hover {
+            background: var(--btn-background-light); }
+        main .app-container .inputsContainer .tabs input[type='radio'] {
+          display: none; }
+          main .app-container .inputsContainer .tabs input[type='radio']:checked + label {
+            background: var(--btn-background-light); }
+          main .app-container .inputsContainer .tabs input[type='radio']:checked + label + .tab {
+            display: flex; }
+        main .app-container .inputsContainer .tabs .tab {
+          position: absolute;
+          padding: 20px 10px;
+          flex-direction: column;
+          height: 65%;
+          margin: 0 auto;
+          display: none;
+          top: 4rem;
+          width: 100%; }
+          main .app-container .inputsContainer .tabs .tab textarea {
+            resize: none;
+            height: 100%; }
+          main .app-container .inputsContainer .tabs .tab input[type='file'] {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 40px auto; }
+          main .app-container .inputsContainer .tabs .tab p {
+            margin-bottom: 10px; }
+          main .app-container .inputsContainer .tabs .tab .submit {
+            position: absolute;
+            top: 100%;
+            left: 30%; }
     main .app-container .resultsContainer {
       border-left: 1px solid gray;
       width: 50%;
       display: flex;
       flex-direction: column; }
+      main .app-container .resultsContainer .heading-box {
+        background-color: var(--btn-background); }
       main .app-container .resultsContainer #result-box {
-        background: var(--tab-background);
+        padding: 10px;
         width: 100%;
         height: 100%;
-        align-self: center; }
-    main .app-container label {
-      padding: 5px 10px; }
+        font-size: 1.2rem;
+        align-self: center;
+        overflow-y: scroll; }
+        main .app-container .resultsContainer #result-box .property {
+          color: var(--title-background); }
+    main .app-container .s-heading {
+      font-size: 1.2rem;
+      padding: 20px 30px; }

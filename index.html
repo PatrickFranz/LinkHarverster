@@ -17,25 +17,30 @@
     <section class='app-container'>
       <div class='inputsContainer'>
         <div class='tabs'>
-          <label for="fileTabRadio">File Upload</label>
-          <label for="taTabRadio">Text Input</label>
-        </div>
-        <input type="radio" name='inputTab' id='fileTabRadio' checked>
-        <div class="tab" id="fileTab">
-          <p>Select an HTML file from your computer.</p>
-          <input type="file" name="fileupload" value="fileupload" id="fileupload">
+          <input type="radio" name='inputTab' id='fileTabRadio' checked>
+          <label id='lbl-file'for="fileTabRadio">File Upload</label>
+          <div class="tab" id="fileTab">
+            <p>Select an HTML file from your computer.</p>
+            <input type="file" name="fileupload" value="fileupload" id="fileupload">
+            <div class="submit">
+              <div id='btnFile' class="btn">Harvest</div>
+            </div>
+          </div>
 
-          <div class="btn">Harvest</div>
-          
-        </div>
-        <input type='radio' name='inputTab' id='taTabRadio'>
-        <div class="tab" id="textInputTab">
-          <textarea name="textInput" id="taInput"></textarea>
-        </div>
+          <input type='radio' name='inputTab' id='taTabRadio'>
+          <label id='lbl-text'for="taTabRadio">Text Input</label>
+          <div class="tab" id="textInputTab">
+            <textarea name="textInput" rows='20' id="taInput"></textarea>
+            <div class="submit">
+              <div id='btnText' class="btn">Harvest</div>
+            </div>
+          </div>
+        </div>    
+  
     </div>
     <div class="resultsContainer">
-      <div>
-        <label>Result</label>
+      <div class='heading-box'>
+        <h3 class="s-heading">Result</h3>
       </div>
       <div id='result-box'>
 
@@ -48,6 +53,6 @@
   <footer>
     &copy;Patrick Franz -- 2017
   </footer>
-  
+  <script src="js/harvester.js"></script>
 </body>
 </html>
